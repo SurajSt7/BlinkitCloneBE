@@ -27,7 +27,7 @@ export const admin = new AdminJS({
       resource: Models.Admin,
       options: {
         listProperties: ["email", "role", "isActivated"],
-        filterProperties: ["phone", "role"],
+        filterProperties: ["email", "role"],
       },
     },
     {

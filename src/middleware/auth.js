@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 export const verifyToken = async (req, res) => {
   try {
     const authHeader = req.headers["authorization"];
-    console.log("authHeader: ", authHeader.startsWith("Bearer "));
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).send({
         message: "Access token required",

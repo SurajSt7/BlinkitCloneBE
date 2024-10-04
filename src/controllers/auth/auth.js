@@ -98,9 +98,9 @@ export const refreshToken = async (req, res) => {
     console.log("Decoded: ", decoded);
     let user;
     if (decoded.role === "Customer") {
-      user = await Customer.findOne(decoded.userId);
+      user = await Customer.findOne({ _id: decoded.userId });
     } else if (decoded.role === "DeliveryPartner") {
-      user = await DeliveryPartner.findOne(decoded.userId);
+      user = await DeliveryPartner.findOne({ _id: decoded.userId });
     } else {
       return res.status(403).send({
         message: "Invalid role",
@@ -112,7 +112,9 @@ export const refreshToken = async (req, res) => {
       });
     }
 
-    const { accessToken, refreshToken: newRefreshToken } = generateToken(user);
+    const { accessToken, refreshToken: newRefreshToken } = await generateToken(
+      user
+    );
     return res.send({
       message: "Token Refreshed",
       accessToken,
