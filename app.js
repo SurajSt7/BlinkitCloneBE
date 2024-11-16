@@ -69,7 +69,7 @@ import Fastify from "fastify";
 import { connectDB } from "./src/config/connect.js";
 import { PORT } from "./src/config/config.js";
 import { admin, buildAdminRouter } from "./src/config/setup.js";
-import { registerRoutes } from "./src/routes/index.js";
+import { registerRoutes } from "./src/api/index.js";
 import fastifySocketIO from "fastify-socket.io";
 import fastifyJwt from "fastify-jwt"; // Added fastify-jwt for JWT handling
 
