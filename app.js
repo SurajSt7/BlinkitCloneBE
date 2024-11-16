@@ -94,11 +94,6 @@ export const start = async () => {
     secret: process.env.JWT_SECRET || "your_default_jwt_secret", // Make sure to set this in your .env file
   });
 
-  // Simple route to return "Hello, World!"
-  app.get("/hello", async (request, reply) => {
-    return { message: "Hello, World!" };
-  });
-
   // Authentication middleware (using JWT)
   app.decorate("authenticate", async function (request, reply) {
     try {
